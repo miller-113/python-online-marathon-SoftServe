@@ -350,65 +350,69 @@ FileType.JSON) -> creates file with name "string.json" and text "String" """
 # with open("2.json", "r") as file:
 #     print(json.load(file))
 
-import json
+
+# TASK 1_2 not mine, via recursion
+# import json
+#
+#
+# def find_all(data, key):
+#     result = []
+#
+#     def find_in_dict(data, key):
+#         for k, v in data.items():
+#             if k == key:
+#                 result.extend(v) if isinstance(v, list) else result.append(v)
+#             else:
+#                 find_in_list(data, key)
+#
+#     def find_in_list(data, key):
+#         if isinstance(data, list):
+#             for list_elem in data:
+#                 find_in_list(list_elem, key)
+#         if isinstance(data, dict):
+#             find_in_dict(data, key)
+#
+#     find_in_list(data, key)
+#     return set(result)
+#
+#
+# def find(file, key):
+#     with open(file) as json_file:
+#         data = json.load(json_file)
+#     return list(find(data, key))
+
+# END TASK
+
+# TASK 2 not mine
+# import json
+# import logging
+#
+#
+# def parse_user(output_file, *input_files):
+#     key_for_parse = 'name'
+#     data_from_json = []
+#     set_of_unique_names = []
+#     users = []
+#     for user in input_files:
+#         try:
+#             with open(user) as json_file:
+#                 data_from_json.extend(json.load(json_file))
+#         except:
+#             logging.error(f"File {user} doesn't exist")
+#     for dict1 in data_from_json:
+#         for k, v in dict1.items():
+#             if (k == key_for_parse and v not in set_of_unique_names):
+#                 set_of_unique_names.append(v)
+#                 users.append(dict1)
+#
+#     with open(output_file, 'w') as file:
+#         json.dump(users, file, indent=4)
+
+# END TASK
 
 
-D1={1: {2: {3: 4, 5: 6}, 3: {4: 5, 6: 7}}, 2: {3: {4: 5}, 4: {6: 7}}}
-def find(file, key):
-    result = []
-    with open(file, "r") as file_r:
-        data = json.load(file_r)
-    copy_data = data.copy()
-    if isinstance(copy_data, list):
-        for item in copy_data:
-            counter = 0
-            item_key = item.get(key, )
-            while isinstance(item_key, list):
-                result.append(item_key[counter])
-                del item_key[counter]
-                # counter += 1
-                if len(item_key) == 0:
-                    break
-            else:
-                if item_key:
-                    result.append(item_key)
-        return list(set(result))
-    else:
-        return list(set(copy_data.get(key, )))
-def iterdict(d):
 
-      for k,v in d.items():
-         if isinstance(v, dict):
-             iterdict(v)
-         else:
-             print (k,":",v)
-
-iterdict(D1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# EXAMPLES WORKS DIFFERENT LOAD AND LOADS
 
 # from io import StringIO
 # import json
