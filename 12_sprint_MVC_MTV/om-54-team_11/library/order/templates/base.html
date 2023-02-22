@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+    {% block title %}{% endblock %}
+  </title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+</head>
+<body>
+<div class="header">
+  <div class="text-header">
+    <h1><a href="/">Welcome to my Page</a><br></h1>
+  </div>
+
+  <nav>
+    <ul class="menu-list">
+      <li class="menu-list-item">
+        <a href="{% url 'author:author_page' %}">Author</a>
+      </li>
+      <li class="menu-list-item">
+        <a href="{% url 'book:book_page' %}">Book</a>
+      </li>
+      <li class="menu-list-item">
+        <a href="{% url 'order:order_page' %}">Orders</a>
+      </li>
+      <li class="menu-list-item">
+        <a href="{% url 'user:user_page' %}">Users</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<hr>
+{% block content %}
+{% endblock %}
+</body>
+</html>

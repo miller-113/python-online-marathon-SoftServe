@@ -1,0 +1,60 @@
+h3{
+    background: red;
+}
+
+:root {
+    font-size: 16px;
+}
+
+a:focus, a:active {
+    outline: none;
+    /*color: black;*/
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a {
+    color: #104b15;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: #ececb0;
+
+}
+
+.header {
+    background: #156c94;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    align-items: center;
+}
+
+.header nav {
+    display: flex;
+    color: white;
+}
+
+.menu-list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.menu-list-item {
+    margin-right: 40px;
+}
+
+.menu-list-item:last-child {
+    margin-right: 20px;
+}

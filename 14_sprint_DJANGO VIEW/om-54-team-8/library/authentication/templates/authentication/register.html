@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block styles %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'register/css/style.css' %}">
+{% endblock %}
+{% block title %}
+  Login
+{% endblock %}
+{% block content %}
+  <form class="registerForm" action="" method="post">
+    {% csrf_token %}
+    <label for="login">Email</label><br>
+    <input type="text" name="login" id="login" value=""><br>
+
+    <label for="password">Password</label><br>
+    <input type="password" name="password" id="password" value=""><br>
+
+    <label for="confirm_password">Confirm password</label><br>
+    <input type="password" name="confirm_password" id="password" value=""><br>
+
+    <label for="firstname">First name:</label><br>
+    <input type="text" name="firstname" id="firstname" value=""><br>
+
+    <label for="middle_name">Middle name:</label><br>
+    <input type="text" name="middle_name" id="firstname" value=""><br>
+
+    <label for="lastname">Lastname:</label><br>
+    <input type="text" name="lastname" id="lastname" value=""><br>
+
+    <label for="role">Role:</label><br>
+    <select name="role"><br>
+      <option value="0">Visitor</option>
+      <option value="1">Librarian</option>
+    </select><br>
+    <input type="submit" value="Register">
+  </form>
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block styles %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'author/css/style.css' %}">
+{% endblock %}
+{% block title %}Create new order{% endblock %}
+{% block content %}
+
+  {% if resolt %}
+    <div class="successAdded"> Successful added order {{ resolt }} </div>
+  {% endif %}
+<form class="orderAddForm" action="" method="post">
+    {% csrf_token %}
+{#    <input type="text" name="book" id="book"><br>#}
+
+    {% if request.user.role %}
+      <label for="book">Input username:</label><br>
+      <select name="user" id="user-select">
+        <option value="False">Please choose a user</option>
+        {% for user in users %}
+          <option value="{{ user.id }}">{{ user.email }}</option>
+        {% endfor %}
+      </select>
+    {% endif %}
+  <br>
+    <label for="book">Input Book name:</label><br>
+    <select name="book" id="books-select">
+      <option value="False">Please choose a book</option>
+      {% for book in books %}
+        <option value="{{ book.id }}">{{ book.name }}</option>
+      {% endfor %}
+    </select>
+  <br>
+    <label for="term">Input order end:</label><br>
+    <input type="number" name="term" id="term" value="term"><br><br>
+
+    <input type="submit" value="Submit">
+</form><br><br>
+
+{#<a>{{resolt}}</a>#}
+{% endblock %}
+

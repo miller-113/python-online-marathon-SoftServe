@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block styles %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+{% endblock %}
+{% block title %}
+Login
+{% endblock %}
+{% block content %}
+  <form class="loginForm" action="" method="post">
+    <h3>Login Here</h3>
+    {% csrf_token %}
+
+    <label for="login">Login</label>
+    <input type="text" name="login" id="login" value="login" onfocus="this.value=''">
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" value="password" onfocus="this.value=''">
+
+    <button type="submit">Log In</button>
+    <br><br>
+    <p style="text-align: center">OR</p>
+    <div class="social">
+
+      <a class="register" href="{% url 'authentication:register' %}"><div class="register">Register</div></a>
+
+    </div>
+  </form>
+
+
+{% endblock %}
